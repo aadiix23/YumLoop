@@ -44,9 +44,9 @@ const OnboardingScreen = () => {
         bottomBarHighlight={false}
 
         
-        SkipButtonComponent={(props) => <CustomButton label="Skip" isSkip {...props} onPress={onboardingCompleted} />}
-        NextButtonComponent={(props) => <CustomButton label="Next" {...props} />}
-        DoneButtonComponent={(props) => <CustomButton label="Done" {...props}onPress={onboardingCompleted} />}
+  SkipButtonComponent={(props: any) => <CustomButton label="Skip" isSkip {...props} onPress={onboardingCompleted} />}
+  NextButtonComponent={(props: any) => <CustomButton label="Next" {...props} />}
+  DoneButtonComponent={(props: any) => <CustomButton label="Done" {...props} onPress={onboardingCompleted} />}
 
        
         subTitleStyles={styles.subTitleBelow}
@@ -65,7 +65,7 @@ const OnboardingScreen = () => {
           },
            {
             backgroundColor: '#fff',
-            image: <Image source={require('../../../assets/images/onboarding1.png')}
+            image: <Image source={require('../../../assets/images/onboarding2.png')}
               style={styles.image} />,
             title: (
               <View style={styles.TopHeadings}>
@@ -77,7 +77,7 @@ const OnboardingScreen = () => {
           },
           {
             backgroundColor: '#fff',
-            image: <Image source={require('../../../assets/images/onboarding1.png')}
+            image: <Image source={require('../../../assets/images/onboarding3.png')}
               style={styles.image} />,
             title: (
               <View style={styles.TopHeadings}>
@@ -99,11 +99,11 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: 400,
-    elevation:10,
+    elevation:20,
     resizeMode: 'contain',
   },
   TopHeadings: {
-    top: height * 0.06,
+    top: height * 0.08,
     left: width * 0.05,
     alignItems: 'flex-start',
     position: 'absolute'

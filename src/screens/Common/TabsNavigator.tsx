@@ -20,9 +20,10 @@ function TabsNavigator() {
         tabBarShowLabel: false,
         tabBarStyle: {
           position: 'absolute',
-          top: height * 0.84,  
-          margin: height * 0.014, 
-          height: height * 0.085, 
+          top: height * 0.85,  
+          margin: height * 0.015, 
+          height: height * 0.074, 
+          padding:11,
           marginLeft: width * 0.14,
           width: width * 0.7,
           backgroundColor: '#302D2D',

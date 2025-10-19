@@ -2,10 +2,13 @@ import { View, Text, Dimensions, TouchableOpacity, SafeAreaView, Image } from 'r
 import React, { useState } from 'react';
 import Video from 'react-native-video';
 import { FlatList } from 'react-native-gesture-handler';
+import OrderScreen from '../TabsScreen/OrderScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }: any) => {
   const [selectedindex, setselectedindex] = useState(0);
 
   const data = [
@@ -105,7 +108,7 @@ const HomeScreen = () => {
                   borderColor: 'white',
                   zIndex: 2
                 }}
-                onPress={() => console.log(`Order from ${item.name}`)}
+                onPress={() => navigation.navigate('Order')}
               >
                 <Text style={{
                   color: 'white',

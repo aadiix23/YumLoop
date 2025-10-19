@@ -1,7 +1,7 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Alert, StyleSheet, Text, TouchableOpacity, View ,StatusBar} from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { TextInput } from 'react-native-gesture-handler';
 import IconFA from 'react-native-vector-icons/FontAwesome';
@@ -15,6 +15,24 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 const LoginScreen = ({ navigation }) => {
   const [email, setemail]=useState('');
   const [password, setpassword]=useState('')
+useEffect(()=>{
+  const checkLoginStatus = async()=>{
+    try {
+       const token = await AsyncStorage.getItem('authToken');
+       if(token){
+        navigation.replace('Tabs')
+       }
+    } catch (error) {
+      //saving Error
+      
+    }
+  }
+  checkLoginStatus();
+
+},[]);
+
+
+
   const Loginhandle = async () => {
   try {
     const response = await axios.post(
@@ -32,7 +50,7 @@ const LoginScreen = ({ navigation }) => {
       Alert.alert('Success', 'Login Successfully ✅');
       setemail('');
       setpassword('');
-      navigation.navigate('Tabs'); 
+      navigation.replace('Tabs'); 
     } else {
       Alert.alert('Error', 'No token received from server');
     }
@@ -158,13 +176,13 @@ const styles = StyleSheet.create({
 
   nameicon2:{
     position:'absolute',
-    top:20,
-    right:310,
+     top:hp('2% '),
+    left:wp('7%')
   },
   nameicon3:{
     position:'absolute',
-    top:80,
-    right:310,
+    top:hp('8.7% '),
+    left:wp('6.7%')
   },
   button:{
     alignItems: 'center',

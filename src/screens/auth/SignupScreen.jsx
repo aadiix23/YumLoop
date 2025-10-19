@@ -41,7 +41,7 @@ const SignupScreen = ({ navigation }) => {
       <Text style={styles.subheading}>Create an account to scroll, explore, and order delicious food easily!</Text>
       </View>
       <View style={styles.textfields}>
-        <IconFA name="user-o" size={22} color="#343635" style={styles.nameicon} />
+        <IconFA name="user-o" size={25} color="#343635" style={styles.nameicon} />
         <TextInput
         style={styles.inputbox}
         placeholder='Name'
@@ -50,7 +50,7 @@ const SignupScreen = ({ navigation }) => {
         onChangeText={setfullname}
   
         />
-        <IconFA name="envelope-o" size={22} color="#343635" style={styles.nameicon2} />
+        <IconFA name="envelope-o" size={25} color="#343635" style={styles.nameicon2} />
         <TextInput
         style={styles.inputbox}
         placeholder='Email Address'
@@ -120,7 +120,7 @@ export default SignupScreen
 const styles = StyleSheet.create({
   container:{
 
-    margin:"auto",
+
 
   },
   heading:{
@@ -157,23 +157,23 @@ const styles = StyleSheet.create({
   },
   nameicon:{
     position:'absolute',
-    top:20,
-    right:310,
+    top:hp('2.5% '),
+    left:wp('8%')
   },
   nameicon2:{
     position:'absolute',
-    top:80,
-    right:310,
+    top:hp('10% '),
+    left:wp('8%')
   },
   nameicon3:{
     position:'absolute',
-    top:143,
-    right:310,
+    top:hp('17.4% '),
+    left:wp('8%')
   },
   nameicon4:{
     position:'absolute',
-    top:207,
-    right:310,
+   top:hp('25% '),
+    left:wp('8%')
   },
   button:{
     alignItems: 'center',
