@@ -2,7 +2,7 @@ import { View, Text, Dimensions, TouchableOpacity, SafeAreaView, Image } from 'r
 import React, { useState } from 'react';
 import Video from 'react-native-video';
 import { FlatList } from 'react-native-gesture-handler';
-import OrderScreen from '../TabsScreen/OrderScreen';
+import OrderDetails from '../TabsScreen/OrderScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -12,12 +12,44 @@ const HomeScreen = ({ navigation }: any) => {
   const [selectedindex, setselectedindex] = useState(0);
 
   const data = [
-    { src: require('../../assets/videos/video1.mp4'), name: 'Burger', logoName: 'Burger King', description: 'Enjoy the juiciest burgers made fresh every day here in Lucknow.' },
-    { src: require('../../assets/videos/video2.mp4'), name: 'Pizza Planet', logoName: 'Pizza Planet Co.', description: 'Delicious pizzas baked with love, toppings just the way you want.' },
-    { src: require('../../assets/videos/video3.mp4'), name: 'Tandoori Tales', logoName: 'Tandoori Tales', description: 'Authentic tandoori flavors to satisfy your taste buds instantly.' },
-    { src: require('../../assets/videos/video4.mp4'), name: 'Burger Hub', logoName: 'Burger Hub Inc.', description: 'The ultimate burger experience with fresh ingredients and spices.' },
-    { src: require('../../assets/videos/video5.mp4'), name: 'Sushi Spot', logoName: 'Sushi Spot', description: 'Fresh sushi rolls crafted with premium fish and rice daily.' },
-  ];
+  {
+    src: require('../../assets/videos/video1.mp4'),
+    name: 'Burger',
+    price: 150,
+    logoName: 'Burger King',
+    description: 'Enjoy the juiciest burgers made fresh every day here in Lucknow. Each bite is packed with flavor and topped with your favorite ingredients.',
+  },
+  {
+    src: require('../../assets/videos/video2.mp4'),
+    name: 'Pizza Planet',
+    price: 350,
+    logoName: 'Pizza Planet Co.',
+    description: 'Delicious pizzas baked with love, loaded with fresh toppings and melted cheese, perfect for sharing with friends and family.',
+  },
+  {
+    src: require('../../assets/videos/video3.mp4'),
+    name: 'Tandoori Tales',
+    price: 250,
+    logoName: 'Tandoori Tales',
+    description: 'Authentic tandoori flavors to satisfy your taste buds instantly. Our marinated meats and vegetables are grilled to perfection.',
+  },
+  {
+    src: require('../../assets/videos/video4.mp4'),
+    name: 'Burger Hub',
+    price: 200,
+    logoName: 'Burger Hub Inc.',
+    description: 'The ultimate burger experience with fresh ingredients, special sauces, and spices to give every bite a delicious twist.',
+  },
+  {
+    src: require('../../assets/videos/video5.mp4'),
+    name: 'Sushi Spot',
+    price: 400,
+    logoName: 'Sushi Spot',
+    description: 'Fresh sushi rolls crafted with premium fish, perfectly cooked rice, and vibrant ingredients to delight every sushi lover.',
+  },
+];
+
+
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
@@ -108,7 +140,7 @@ const HomeScreen = ({ navigation }: any) => {
                   borderColor: 'white',
                   zIndex: 2
                 }}
-                onPress={() => navigation.navigate('Order')}
+                onPress={() => navigation.navigate('OrderDetails',{item})}
               >
                 <Text style={{
                   color: 'white',

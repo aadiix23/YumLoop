@@ -12,10 +12,17 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const { width, height } = Dimensions.get('window');
-const scale = width / 375;  
-const verticalScale = height / 812; 
+const scale = width / 375;
+const verticalScale = height / 812;
 
-export default function OrderDetails() {
+
+
+export default function OrderDetails({ route }) {
+  const { item } = route.params;
+  const subtotal = item.price; 
+const deliveryFee = 77;
+const total = subtotal + deliveryFee;
+
   const [selectedPayment, setSelectedPayment] = useState('COD');
 
   return (
@@ -75,43 +82,42 @@ export default function OrderDetails() {
                   {method === 'COD'
                     ? 'COD ( Cash On Delivery )'
                     : method === 'UPI'
-                    ? 'UPI'
-                    : 'Credit / Debit Card'}
+                      ? 'UPI'
+                      : 'Credit / Debit Card'}
                 </Text>
               </TouchableOpacity>
             ))}
           </View>
+          
 
           {/* Order Summary */}
           <View style={styles.section}>
+            
             <View style={styles.row}>
               <Icon name="file-document-outline" size={16 * scale} color="#1D2D4C" />
               <Text style={styles.sectionTitle}>Order Summary</Text>
             </View>
 
             <View style={styles.summaryRow}>
-              <Text style={styles.itemText}>1 x Cheese Burger</Text>
-              <Text style={styles.itemPrice}>150</Text>
+              <Text style={styles.itemText}>1 x {item.name}</Text>
+              <Text style={styles.itemPrice}>{item.price}</Text> 
             </View>
-            <View style={styles.summaryRow}>
-              <Text style={styles.itemText}>1 x French fries with honey sauce</Text>
-              <Text style={styles.itemPrice}>350</Text>
-            </View>
+
 
             <View style={styles.line} />
             <View style={styles.summaryRow}>
               <Text style={styles.itemText}>Subtotal</Text>
-              <Text style={styles.itemPrice}>500</Text>
+              <Text style={styles.itemPrice}>{subtotal}</Text>
             </View>
             <View style={styles.summaryRow}>
               <Text style={styles.itemText}>Delivery Fee</Text>
-              <Text style={styles.itemPrice}>77</Text>
+              <Text style={styles.itemPrice}>{deliveryFee}</Text>
             </View>
 
             <View style={styles.line} />
             <View style={styles.summaryRow}>
               <Text style={styles.totalLabel}>Total</Text>
-              <Text style={styles.totalValue}>577</Text>
+              <Text style={styles.totalValue}>{total}</Text>
             </View>
           </View>
         </View>
