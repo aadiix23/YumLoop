@@ -7,6 +7,7 @@ import Tabsscreen from './screens/Common/TabsNavigator';
 import OnboardingScreen from '../src/screens/Common/OnboardingScreens/OnboardingScreen'
 import authnavigator from './screens/auth/authNavigator'
 import OrderDetails from './screens/TabsScreen/OrderScreen';
+import Success from './screens/Common/placedscreen'
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ const App = () => {
         <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
         <Stack.Screen name="authnavigator" component={authnavigator}/>
         <Stack.Screen name ="OrderDetails" component={OrderDetails}/>
+        <Stack.Screen name="Success" component={Success}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

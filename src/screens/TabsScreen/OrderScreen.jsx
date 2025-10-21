@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
 const scale = width / 375;
@@ -18,10 +20,11 @@ const verticalScale = height / 812;
 
 
 export default function OrderDetails({ route }) {
-  const { item } = route.params;
-  const subtotal = item.price; 
-const deliveryFee = 77;
-const total = subtotal + deliveryFee;
+  const item = route?.params?.item || { name: '', price: 0 }; // fallback
+    const navigation = useNavigation(); 
+  const subtotal = item.price;
+  const deliveryFee = 77;
+  const total = subtotal + deliveryFee;
 
   const [selectedPayment, setSelectedPayment] = useState('COD');
 
@@ -122,7 +125,8 @@ const total = subtotal + deliveryFee;
           </View>
         </View>
 
-        <TouchableOpacity style={styles.placeOrderBtn}>
+        <TouchableOpacity style={styles.placeOrderBtn}
+        onPress={()=>navigation.navigate("Success")}>
           <Text style={styles.placeOrderText}>Place Order</Text>
         </TouchableOpacity>
 
