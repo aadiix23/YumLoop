@@ -5,6 +5,7 @@ import IconFA from 'react-native-vector-icons/FontAwesome';
 import React from 'react';
 import ProfileScreen from '../TabsScreen/ProfileScreen';
 import OrderScreen from '../TabsScreen/OrderScreen';
+import SearchScreen from '../TabsScreen/SearchScreen'
 
 const { width, height } = Dimensions.get('window');
 const Tab = createBottomTabNavigator();
@@ -12,7 +13,6 @@ const Tab = createBottomTabNavigator();
 function TabsNavigator() {
   return (
     <Tab.Navigator
-    initialRouteName='Home'
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: '#EE2222',
@@ -39,8 +39,8 @@ function TabsNavigator() {
       }}
     >
       <Tab.Screen
-        name="Order"
-        component={OrderScreen}
+        name="Search"
+        component={SearchScreen}
         options={{
           tabBarLabel: ({ color }) => (
             <Text style={{ fontFamily: 'Karla-Regular', color }}>OrderScreen</Text>

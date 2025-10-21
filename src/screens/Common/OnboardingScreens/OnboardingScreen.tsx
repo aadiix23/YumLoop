@@ -4,6 +4,7 @@ import Onboarding from 'react-native-onboarding-swiper';
 import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/native';
 
+
 const { width, height } = Dimensions.get('window');
 import AsyncStorage from '@react-native-async-storage/async-storage';
 

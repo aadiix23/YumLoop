@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Tabsscreen from './screens/Common/TabsNavigator';
 import OnboardingScreen from '../src/screens/Common/OnboardingScreens/OnboardingScreen'
 import authnavigator from './screens/auth/authNavigator'
+
 const Stack = createStackNavigator();
 
 const App = () => {
