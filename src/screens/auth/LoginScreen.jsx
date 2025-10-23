@@ -14,52 +14,57 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setemail]=useState('');
-  const [password, setpassword]=useState('')
-useEffect(()=>{
-  const checkLoginStatus = async()=>{
-    try {
-       const token = await AsyncStorage.getItem('authToken');
-       if(token){
-        navigation.replace('Tabs')
-       }
-    } catch (error) {
-      //saving Error
-      
-    }
-  }
-  checkLoginStatus();
+  const [password, setpassword]=useState('');
 
-},[]);
-
-
-
-  const Loginhandle = async () => {
-  try {
-    const response = await axios.post(
-      'https://nondomestically-supersubtle-taisha.ngrok-free.dev/api/auth/user/login',
-      {
-        email: email,
-        password: password,
+  useEffect(()=>{
+    const checkLoginStatus = async()=>{
+      try {
+         const token = await AsyncStorage.getItem('authToken');
+         if(token){
+          navigation.replace('Tabs')
+         }
+      } catch (error) {
+        //saving Error
       }
-    );
-
-    const token = response.data.token;
-
-    if (token) {
-      await AsyncStorage.setItem('authToken', token);
-      Alert.alert('Success', 'Login Successfully ✅');
-      setemail('');
-      setpassword('');
-      navigation.replace('Tabs'); 
-    } else {
-      Alert.alert('Error', 'No token received from server');
     }
+    checkLoginStatus();
+  },[]);
 
-  } catch (error) {
-    console.log('Login Error:', error.response?.data || error.message);
-    Alert.alert('Error', 'Login Failed');
-  }
-};
+
+  // 🔻 Commented out API login logic
+  // const Loginhandle = async () => {
+  //   try {
+  //     const response = await axios.post(
+  //       'https://nondomestically-supersubtle-taisha.ngrok-free.dev/api/auth/user/login',
+  //       {
+  //         email: email,
+  //         password: password,
+  //       }
+  //     );
+
+  //     const token = response.data.token;
+
+  //     if (token) {
+  //       await AsyncStorage.setItem('authToken', token);
+  //       Alert.alert('Success', 'Login Successfully ✅');
+  //       setemail('');
+  //       setpassword('');
+  //       navigation.replace('Tabs'); 
+  //     } else {
+  //       Alert.alert('Error', 'No token received from server');
+  //     }
+
+  //   } catch (error) {
+  //     console.log('Login Error:', error.response?.data || error.message);
+  //     Alert.alert('Error', 'Login Failed');
+  //   }
+  // };
+
+  // ✅ Simple navigation for now
+  const Loginhandle = () => {
+    navigation.replace('Tabs');
+  };
+
   
   return (
     <SafeAreaView style={{flex:1,}}> 
@@ -87,7 +92,7 @@ useEffect(()=>{
         value={password}
         onChangeText={setpassword}
         placeholderTextColor={"#5c5c5c"}
-  
+        secureTextEntry
         />
         
         <View>
@@ -132,7 +137,6 @@ export default LoginScreen
 
 const styles = StyleSheet.create({
   container:{
-
     margin:1,
   },
   heading:{
@@ -141,7 +145,6 @@ const styles = StyleSheet.create({
     fontWeight:'700',
     paddingTop:5,
     fontFamily:'Karla-Regular',
-
   },
   subheading:{
     fontSize:19,
@@ -150,12 +153,10 @@ const styles = StyleSheet.create({
     paddingTop:10,
     fontFamily:'Karla-Regular',
     color:'#5c5c5c'
-
   },
-  headingcontainer:{
-  },
+  headingcontainer:{},
   textfields:{
-  marginTop:40,
+    marginTop:40,
   },
   inputbox:{
     height: 40,
@@ -167,21 +168,17 @@ const styles = StyleSheet.create({
     borderRadius:10,
     borderColor:'#868686',
     fontFamily:'Karla-Regular',
-    
     fontWeight:'500',
     fontSize:18,
-
-  
   },
-
   nameicon2:{
     position:'absolute',
-     top:hp('2% '),
+    top:hp('2%'),
     left:wp('7%')
   },
   nameicon3:{
     position:'absolute',
-    top:hp('8.7% '),
+    top:hp('8.7%'),
     left:wp('6.7%')
   },
   button:{
@@ -202,9 +199,8 @@ const styles = StyleSheet.create({
     fontFamily:'Karla-Regular',
     letterSpacing: 0.25,
     color: 'white',
-    fontFamily:'Karla-Regular',
   },
-   containeror: {
+  containeror: {
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 30,
@@ -229,4 +225,4 @@ const styles = StyleSheet.create({
     backgroundColor:'#e6e6e6',
     justifyContent:'center',
   },
-})
+});

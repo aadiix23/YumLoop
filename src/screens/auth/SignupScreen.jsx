@@ -16,22 +16,29 @@ const SignupScreen = ({ navigation }) => {
   const [password, setpassword]=useState('');
   const [confirmpassword, setconfirmpassword]=useState('');
 
-  const SignupHandle = async()=>{
-    try {
-      const response = await axios.post('https://nondomestically-supersubtle-taisha.ngrok-free.dev/api/auth/user/register',{
-      fullname:fullname,
-      email: email,
-      password: password,
-      confirmpassword:confirmpassword
-      });
-      Alert.alert('Success','Register SucessFully')
-      setemail('');
-      setpassword('');
+  // 🔻 Commented out API signup code
+  // const SignupHandle = async()=>{
+  //   try {
+  //     const response = await axios.post('https://nondomestically-supersubtle-taisha.ngrok-free.dev/api/auth/user/register',{
+  //     fullname:fullname,
+  //     email: email,
+  //     password: password,
+  //     confirmpassword:confirmpassword
+  //     });
+  //     Alert.alert('Success','Register SucessFully')
+  //     setemail('');
+  //     setpassword('');
       
-    } catch (error) {
-      Alert.alert('Error','Register Failed')
-    }
-  }
+  //   } catch (error) {
+  //     Alert.alert('Error','Register Failed')
+  //   }
+  // }
+
+  // ✅ Temporary handler for navigation
+  const SignupHandle = () => {
+    navigation.replace('Tabs');
+  };
+
   return (
     <SafeAreaView style={{flex:1,}}> 
     <View style={styles.container}>
@@ -118,11 +125,7 @@ const SignupScreen = ({ navigation }) => {
 export default SignupScreen
 
 const styles = StyleSheet.create({
-  container:{
-
-
-
-  },
+  container:{},
   heading:{
     fontSize:40,
     textAlign:'center',
@@ -137,10 +140,9 @@ const styles = StyleSheet.create({
     paddingTop:1,
     fontFamily:'Karla-Regular',
   },
-  headingcontainer:{
-  },
+  headingcontainer:{},
   textfields:{
-  marginTop:10,
+    marginTop:10,
   },
   inputbox:{
     height: hp('5%'),
@@ -172,7 +174,7 @@ const styles = StyleSheet.create({
   },
   nameicon4:{
     position:'absolute',
-   top:hp('25% '),
+    top:hp('25% '),
     left:wp('8%')
   },
   button:{
@@ -196,7 +198,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontFamily:'Karla-Regular',
   },
-   containeror: {
+  containeror: {
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: hp("2%"),
@@ -221,4 +223,4 @@ const styles = StyleSheet.create({
     backgroundColor:'#e6e6e6',
     justifyContent:'center',
   },
-})
+});

@@ -13,41 +13,47 @@ const HomeScreen = ({ navigation }: any) => {
 
   const data = [
   {
-    src: require('../../assets/videos/video1.mp4'),
+    src: { uri: 'https://www.pexels.com/download/video/8879534/' },
     name: 'Burger',
     price: 150,
     logoName: 'Burger King',
-    description: 'Enjoy the juiciest burgers made fresh every day here in Lucknow. Each bite is packed with flavor and topped with your favorite ingredients.',
+    description:
+      'Enjoy the juiciest burgers made fresh every day here in Lucknow. Each bite is packed with flavor and topped with your favorite ingredients.',
   },
   {
-    src: require('../../assets/videos/video2.mp4'),
+    src: { uri: 'https://www.pexels.com/download/video/7008562/' },
     name: 'Pizza Planet',
     price: 350,
     logoName: 'Pizza Planet Co.',
-    description: 'Delicious pizzas baked with love, loaded with fresh toppings and melted cheese, perfect for sharing with friends and family.',
+    description:
+      'Delicious pizzas baked with love, loaded with fresh toppings and melted cheese, perfect for sharing with friends and family.',
   },
   {
-    src: require('../../assets/videos/video3.mp4'),
+    src: { uri: 'https://www.pexels.com/download/video/30044485/' },
     name: 'Tandoori Tales',
     price: 250,
     logoName: 'Tandoori Tales',
-    description: 'Authentic tandoori flavors to satisfy your taste buds instantly. Our marinated meats and vegetables are grilled to perfection.',
+    description:
+      'Authentic tandoori flavors to satisfy your taste buds instantly. Our marinated meats and vegetables are grilled to perfection.',
   },
   {
-    src: require('../../assets/videos/video4.mp4'),
+    src: { uri: 'https://www.pexels.com/download/video/29093927/' },
     name: 'Burger Hub',
     price: 200,
     logoName: 'Burger Hub Inc.',
-    description: 'The ultimate burger experience with fresh ingredients, special sauces, and spices to give every bite a delicious twist.',
+    description:
+      'The ultimate burger experience with fresh ingredients, special sauces, and spices to give every bite a delicious twist.',
   },
   {
-    src: require('../../assets/videos/video5.mp4'),
+    src: { uri: 'https://www.pexels.com/download/video/19387193/' },
     name: 'Sushi Spot',
     price: 400,
     logoName: 'Sushi Spot',
-    description: 'Fresh sushi rolls crafted with premium fish, perfectly cooked rice, and vibrant ingredients to delight every sushi lover.',
+    description:
+      'Fresh sushi rolls crafted with premium fish, perfectly cooked rice, and vibrant ingredients to delight every sushi lover.',
   },
 ];
+
 
 
 
